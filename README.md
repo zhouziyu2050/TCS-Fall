@@ -14,7 +14,7 @@ All raw data (".dat" file) can be downloaded at：
 Run ```csi-view.ipynb``` to show the CSI data.
 
 # Package dependencies
-CSI Tool can be accessed from https://github.com/dhalperi/linux-80211n-csitool-supplementary.
+CSITool can be accessed from https://github.com/dhalperi/linux-80211n-csitool-supplementary.
 
 Python 3.8+ is required, and the main dependency packages are the follows.
 ```
