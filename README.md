@@ -4,3 +4,11 @@ Falling is considered as a serious problem for the aging society, especially for
 # download dataset
 All raw data (".dat" file) can be downloaded at：
 * https://pan.baidu.com/s/1NKy0UEjHSAgaA8AHq6iHYw?pwd=4y1d
+
+# Run Code
+* Firstly, change the params and run ```preprocess.ipynb``` in jupyter lab.
+* Secondly, run ```butter-cv-cnn.py``` and the result will be record in ```result.csv```.
+* Finally, run ```result_analyse.ipynb``` to analyse the result and get the bar images.
+
+# CSI Data Visualization
+Run ```csi-view.ipynb``` to show the CSI data.
