@@ -14,9 +14,11 @@ All raw data (".dat" file) can be downloaded at：
 Run ```csi-view.ipynb``` to show the CSI data.
 
 # Package dependencies
+CSI Tool can be accessed from https://github.com/dhalperi/linux-80211n-csitool-supplementary.
+Python 3.8+ is required, and the main dependency packages are the follows.
 ```
 pip install jupyter
 pip install torch==1.11.0 torchvision==0.12.0
-pip install numpy numba PyWavelets scipy matplotlib pandas 
+pip install numpy==1.21.2 numba==0.55.2 PyWavelets=1.3.0 scipy matplotlib pandas 
 pip install onnx onnxoptimizer onnxruntime-gpu protobuf
 ```
