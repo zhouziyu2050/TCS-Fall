@@ -20,6 +20,6 @@ Python 3.8+ is required, and the main dependency packages are the follows.
 ```
 pip install jupyter
 pip install torch==1.11.0 torchvision==0.12.0
-pip install numpy==1.21.2 numba==0.55.2 PyWavelets=1.3.0 scipy matplotlib pandas 
+pip install numpy==1.21.2 numba==0.55.2 PyWavelets=1.3.0 scipy==1.8.1 matplotlib==3.5.2 pandas==1.4.2
 pip install onnx onnxoptimizer onnxruntime-gpu protobuf
 ```
