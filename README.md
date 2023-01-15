@@ -15,6 +15,7 @@ Run ```csi-view.ipynb``` to show the CSI data.
 
 # Package dependencies
 CSI Tool can be accessed from https://github.com/dhalperi/linux-80211n-csitool-supplementary.
+
 Python 3.8+ is required, and the main dependency packages are the follows.
 ```
 pip install jupyter
