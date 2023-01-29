@@ -17,7 +17,7 @@ Run ```csi-view.ipynb``` to show the CSI data.
 # Package dependencies
 CSITool can be accessed from https://github.com/dhalperi/linux-80211n-csitool-supplementary.
 
-Python 3.8+ is required, and the main dependency packages are the follows.
+Python 3.8+ is required, and the main dependency packages are as follows:
 ```
 pip install jupyter
 pip install torch==1.11.0 torchvision==0.12.0
