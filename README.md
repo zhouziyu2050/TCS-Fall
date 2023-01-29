@@ -4,6 +4,7 @@ Falling is considered as a serious problem for the aging society, especially for
 # download dataset
 All raw data (".dat" file) can be downloaded at：
 * https://pan.baidu.com/s/1NKy0UEjHSAgaA8AHq6iHYw?pwd=4y1d
+* http://cppdd.cn/TCS-Fall/
 
 # Run Code
 * Firstly, change the params and run ```preprocess.ipynb``` in jupyter lab.
