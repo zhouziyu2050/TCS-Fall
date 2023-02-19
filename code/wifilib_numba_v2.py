@@ -10,10 +10,10 @@ import math
 #         field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
 #         while field_len != 0:
 #             arr = f.read(field_len)
-#             if len(arr) == field_len:  # 读取的数据长度与预期相等才保留
+#             if len(arr) == field_len:
 #                 bfee_list.append(arr)
 #             field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
-#             # 限制读取长度
+#             # length limit
 #             if maxlen != 0 and len(bfee_list) >= maxlen:
 #                 break
 #     return analyse_bf(bfee_list)
