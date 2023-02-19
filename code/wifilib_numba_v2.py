@@ -3,7 +3,7 @@ from numba.typed import List
 import numpy as np
 import math
 
-# 旧方案，舍弃
+# old method
 # def read_bf_file(filename, maxlen=0):
 #     with open(filename, "rb") as f:
 #         bfee_list = List()
@@ -18,7 +18,7 @@ import math
 #                 break
 #     return analyse_bf(bfee_list)
 
-# 整个文件读取后再分析
+# read all the file and then split with numba
 def read_bf_file(path):
     with open(path, mode='rb') as f:
         byte_array = f.read()
@@ -125,7 +125,7 @@ def analyse_bf(bfee_list):
     return dicts, csis
 
 
-# uint8转int
+# uint8 to int
 @jit(nopython=True, cache=True)
 def bytes2int(byt, byteorder='little'):
     d = 0
