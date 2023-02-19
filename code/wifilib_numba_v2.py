@@ -3,20 +3,40 @@ from numba.typed import List
 import numpy as np
 import math
 
+# 旧方案，舍弃
+# def read_bf_file(filename, maxlen=0):
+#     with open(filename, "rb") as f:
+#         bfee_list = List()
+#         field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
+#         while field_len != 0:
+#             arr = f.read(field_len)
+#             if len(arr) == field_len:  # 读取的数据长度与预期相等才保留
+#                 bfee_list.append(arr)
+#             field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
+#             # 限制读取长度
+#             if maxlen != 0 and len(bfee_list) >= maxlen:
+#                 break
+#     return analyse_bf(bfee_list)
 
-def read_bf_file(filename, maxlen=0):
-    with open(filename, "rb") as f:
-        bfee_list = List()
-        field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
-        while field_len != 0:
-            arr = f.read(field_len)
-            if len(arr) == field_len:  # 读取的数据长度与预期相等才保留
-                bfee_list.append(arr)
-            field_len = int.from_bytes(f.read(2), byteorder='big', signed=False)
-            # 限制读取长度
-            if maxlen != 0 and len(bfee_list) >= maxlen:
-                break
+# 整个文件读取后再分析
+def read_bf_file(path):
+    with open(path, mode='rb') as f:
+        byte_array = f.read()
+    # byte_array=np.fromfile(path, dtype=np.uint8,offset=0)
+    bfee_list = split_bytes(byte_array)
     return analyse_bf(bfee_list)
+
+
+@njit(cache=True)
+def split_bytes(byte_array):
+    p = 0
+    bfee_list = List()
+    field_len = bytes2int(byte_array[p:p + 2], "big")
+    while field_len != 0 and p + field_len <= len(byte_array):
+        bfee_list.append(byte_array[p + 2:p + 2 + field_len])
+        p += field_len + 2
+        field_len = bytes2int(byte_array[p:p + 2], "big")
+    return bfee_list
 
 
 @jit(nopython=True, cache=True)
@@ -79,10 +99,8 @@ def analyse_bf(bfee_list):
             continue
         else:
             # csi[:, perm, :] = csi[:, (0, 1, 2), :]
-            csi[:, perm[0], :], csi[:, perm[1], :], csi[:, perm[2], :], = csi[:, 0, :].copy(), csi[:, 1, :].copy(), csi[
-                                                                                                                    :,
-                                                                                                                    2,
-                                                                                                                    :].copy()
+            csi[:, perm[0], :], csi[:, perm[1], :], csi[:, perm[2], :], \
+                = csi[:, 0, :].copy(), csi[:, 1, :].copy(), csi[:,2,:].copy()
 
         # dict,and return
         bfee_dict = (
@@ -110,11 +128,14 @@ def analyse_bf(bfee_list):
 # uint8转int
 @jit(nopython=True, cache=True)
 def bytes2int(byt, byteorder='little'):
+    d = 0
     if byteorder == 'little':
-        d = 0
         for item in byt[::-1]:
-            d = d * 256 + item
-        return d
+            d = (d << 8) + item
+    elif byteorder == 'big':
+        for item in byt[::1]:
+            d = (d << 8) + item
+    return d
 
 
 @jit(nopython=True, cache=True)
