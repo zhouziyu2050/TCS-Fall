@@ -23,5 +23,4 @@ pip install jupyter
 pip install torch==1.11.0 torchvision==0.12.0
 pip install numpy==1.23.5 numba==0.56.4 PyWavelets=1.4.1 scipy==1.9.3 matplotlib==3.6.2 pandas==1.5.2
 pip install onnxruntime
-# pip install onnx onnxoptimizer onnxruntime-gpu protobuf
 ```
