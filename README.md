@@ -14,7 +14,7 @@ Channel state information, cross-individual fall detection, grouped coefficient 
 
 # download dataset
 All raw data (".dat" file) can be downloaded at：
-* [https://pan.baidu.com/s/1NKy0UEjHSAgaA8AHq6iHYw?pwd=4y1d](https://pan.baidu.com/s/1La99unNH-6KYhxrV5LsyVQ?pwd=c46j)
+* https://pan.baidu.com/s/1La99unNH-6KYhxrV5LsyVQ?pwd=c46j
 * http://cppdd.cn/TCS-Fall/
 
 # Run Code
