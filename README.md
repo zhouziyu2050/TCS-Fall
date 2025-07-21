@@ -14,8 +14,8 @@ Channel state information, cross-individual fall detection, grouped coefficient 
 
 # download dataset
 All raw data (".dat" file) can be downloaded at：
-* https://pan.baidu.com/s/1La99unNH-6KYhxrV5LsyVQ?pwd=c46j
-* http://cppdd.cn/TCS-Fall/
+* https://pan.baidu.com/s/16mKF9zF-mKx0H2ojYJNNJA?pwd=nxpi
+* https://ieee-dataport.org/documents/tcs-fall
 
 # Run Code
 * Firstly, change the params and run ```preprocess.ipynb``` in jupyter lab.
